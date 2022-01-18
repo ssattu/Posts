@@ -1,0 +1,29 @@
+
+<h1 class="d-flex justify-content-center align-content-center">User Details</h1>
+<table class="d-flex justify-content-around border-1 m-5">
+	<tr class="border-dark">
+		<th class="border-2 p-2 text-center"><b>Id</th>
+		<th class="border-2 p-2 text-center"><b>User</th>
+		<th class="border-2 p-2 text-center"><b>Title</th>
+		<th class="border-2 p-2 text-center"><b>Description</th>
+		<th class="border-2 p-2 text-center" colspan="3">Operations</th>
+
+		<% @posts.each do |post|%>
+	<tr>
+		<td class="border-1 p-2"><%= post.id %></td>
+		<td class="border-1 p-2"><%= post.user_id %></td>
+		<td class="border-1 p-2"><%= post.title %></td>
+		<td class="border-1 p-2"><%= post.description %></td>
+		<td class="border-1 p-2"><%= button_to 'Edit',  edit_post_path(post), method: :get %></td>
+		<td class="border-1 p-2"><%= button_to 'Show',  post_path(post), method: :get%></td>
+		<td class="border-1 p-2"><%= button_to 'Remove',  post_path(post), method: :delete, data: {confirm: "Are you sure"} %></td>
+	</tr>
+	<%end%>
+</table>
+
+<br>
+<br>
+<div class=" d-flex justify-content-around">
+<button class="p-2 btn-primary btn  rounded-2 p-2"><a class="text-decoration-none text-light" href="posts/new"> Create Posts</a></button>
+<button class="p-2 btn-primary btn  rounded-2 p-2"><a class="text-decoration-none text-light" href="posts/new"> Create User</a></button>
+</div>

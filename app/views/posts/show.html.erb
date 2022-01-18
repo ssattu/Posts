@@ -1,0 +1,34 @@
+<h1 class="d-block m-auto d-flex justify-content-center"><u>
+	<%= @post.title%></u>		
+	</h1>
+<br>
+<div class="d-block m-auto d-flex justify-content-center">
+	<h3>
+		Description
+	</h3>
+</div>
+<div class="d-block m-auto d-flex justify-content-center">
+ <%= @post.description %><br><br><br><br><br><br>
+</div>
+
+<div class="d-block m-auto d-flex justify-content-center">
+<div class="m-3">	<%= button_to "Go to Home", posts_path , method: :get %>
+</div>
+<div class="m-3">	<%= button_to "Edit", edit_post_path, method: :get %>
+</div>
+<div class="m-3">	<%= button_to 'Destroy',  post_path(@post), method: :delete, id:'delete-btn' %>
+</div>
+
+</div>
+<script>
+  deleteButton = document.querySelector("#delete-btn");
+  deleteButton.addEventListener("click", deleteConfirmation);
+  function deleteConfirmation(e) {
+    if (confirm("Are you sure?")) {
+      
+    }else {
+      event.preventDefault()
+    }
+  }
+</script>
+ 
