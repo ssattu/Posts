@@ -8,15 +8,22 @@
 	</h3>
 </div>
 <div class="d-block m-auto d-flex justify-content-center">
- <%= @post.description %><br><br><br><br><br><br>
+ <%= @post.description %><br><br>
 </div>
 
 <div class="d-block m-auto d-flex justify-content-center">
-<div class="m-3">	<%= button_to "Go to Home", posts_path , method: :get %>
+  <p>
+    <label class="d-block m-auto d-flex justify-content-center">My Post</label><br>
+    <%= image_tag(@post.post.url) if @post.post.url %>
+  </p>
 </div>
-<div class="m-3">	<%= button_to "Edit", edit_post_path, method: :get %>
+
+<div class="d-block m-auto d-flex justify-content-center">
+<div class="m-2">	<%= button_to "Go to Home", posts_path , method: :get, class:"m-2 btn-secondary rounded-2" %>
 </div>
-<div class="m-3">	<%= button_to 'Destroy',  post_path(@post), method: :delete, id:'delete-btn' %>
+<div class="m-2 ">	<%= button_to "Edit", edit_post_path, method: :get, class:"m-2 btn-secondary rounded-2" %>
+</div>
+<div class="m-2">	<%= button_to 'Destroy',  post_path(@post), method: :delete, class:"m-2 btn-secondary rounded-2", id:'delete-btn' %>
 </div>
 
 </div>

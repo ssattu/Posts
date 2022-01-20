@@ -1,10 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
+  validates :title, format: { with: /\A[a-zA-Z\s]+\z/ }, presence:true
+  validates :description, length: {minimum: 30 }, presence:true 
 
-
-
-  validates :user_id, presence:true
-  validates :title, presence:true
-  validates :description, presence:true, length:{minimum: 30 }
-
+   mount_uploader :post, PostUploader
 end

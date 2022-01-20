@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center">
+  <h1>Edit <%= resource_name.to_s.humanize %></h1>
+</div>
+
+<div class="d-flex justify-content-center">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.text_field :age, autofocus: true, autocomplete: "age" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :phone_no %><br />
+    <%= f.text_field :phone_no, autofocus: true, autocomplete: "phone_no" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.radio_button :gender, 'Male', autofocus: true, autocomplete: "gender" %>
+    <%= f.label :gender_male, "Male" %><br />
+    <%= f.radio_button :gender, 'Female', autofocus: true, autocomplete: "gender" %>
+    <%= f.label :gender_female, "Female" %><br />
+    <%= f.radio_button :gender, 'Transgender', autofocus: true, autocomplete: "gender" %>
+    <%= f.label :gender_transgender, "Transgender" %><br />
+  </div>
+
+  <div class="field">
+    <%= f.label :photos, "Upload Photo" %><br />
+    <%= f.file_field :photos, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %><br><br>
+  </div>
+
+  <div class="actions d-flex justify-content-center">
+    <%= f.submit "Update", class:"btn-secondary rounded" %><br>
+  </div>
+<% end %>
+</div>
+
+<div class="d-flex justify-content-center">
+  <h3>Cancel my account</h3>
+</div>
+<div class="d-flex justify-content-center">
+    <p>Unhappy?</p> <br></div>
+    <div class="d-flex justify-content-center">
+    <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+</div><br>
+
+<div class="d-flex justify-content-center border-1"><%= link_to "Back", :back, class:"btn btn-secondary" %></div>

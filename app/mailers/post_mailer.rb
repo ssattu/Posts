@@ -8,6 +8,6 @@ class PostMailer < ApplicationMailer
   def new_post_added(post)
     @post = post
 
-    mail(from: "7532970388sac@gmail.com", to: "satyam@devohack.com", subject: "New Post Added by User")
+    mail(from: "7532970388sac@gmail.com", to: "ravinder@devohack.com", subject: "New Post Added by User")
   end
 end

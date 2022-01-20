@@ -1,0 +1,2 @@
+ git config --global user.email "satyam@devohack.com"
+ git config --global user.name "Satyam Sharma"

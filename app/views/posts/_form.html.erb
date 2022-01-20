@@ -1,8 +1,7 @@
 <section class="d-block m-auto d-flex justify-content-center">
 <%= form_with model: @post, url: @action == 'edit' ?   post_path : posts_new_path, method: @action=='edit' ? :patch : :post , id:'form'  do |form| %>
     <div class="m-4">
-        <%= form.label :user_id, "User id :"%><br>
-        <%= form.text_field :user_id, size:100*5, class:'input form-control' %><br>
+        
 
         <%= form.label :title, "Title :"%><br>
         <%= form.text_field :title , class:'input form-control'%><br>
@@ -10,64 +9,37 @@
         <%= form.label :description , "Description :"%><br>
         <%= form.text_area :description , size: 100*5, class:'input form-control' %><br>
 
+        <%= form.label :post, "Upload File :"%><br>
+        <%= form.file_field :post , class:''%><br>
+
         <div class="d-flex justify-content-center m-3">
-            <input type="button" class="btn-secondary btn" value="Submit" id="btn"></input><br>
+            <%= link_to "Back", :back, class:"btn btn-secondary m-3" %>
+            <input type="button" class="btn-secondary btn m-3" value="Submit" id="btn"></input><br>
         </div>
     </div>
 </section>
 <%end%>
 
-<!-- <script>
-    
-    submitButton.addEventListener('click', postValidation);
-    
-    var input = document.querySelectorAll(".input");
-    
-    
-    var inputValue = []
-    var fullArr = []
-    
-    function postValidation(e) {
-        console.log(e.type);
-        for (i = 0; i <= 5; i++) 
-        {
-            inputValue.push(input[i].value)
-            if (!regex[i].test(inputValue[i]) && inputValue[i] != "") 
-            {
-                console.log(input[i].value);
-                alert(errorMessage[i]);
-                break;
-            } 
-            else if (input[i].value == "") 
-            {
-                fullArr.push(blankValidation[i]);
-            }
-        }
-        document.getElementById("form").submit();
-        alert(fullArr);
-        
-  }
-</script> -->
 <script>
     var submit = document.querySelector(".btn");
 
     submit.addEventListener('click', inputs);
     var input = document.querySelectorAll(".input");
 
-    var regexUserId = /^[0-9]+$/;
+    
     var regexTitle = /^[a-zA-Z\s]+$/;
     var regexDescription = /^(.{30,})$/
 
-    var alerts = ["User id must be present","Title must be Present", "Description must be Present"]
+    var alerts = ["Title must be Present", "Description must be Present"]
 
-    var alert1 = ["User Id should contain only digits 0-9","Title only Contains Character A-z", "Description Length should be Greater than 20 Characters"]
-    var regex = [regexUserId, regexTitle, regexDescription]
+    var alert1 = ["Title only Contains Character A-z", "Description Length should be Greater than 30 Characters"]
+    var regex = [ regexTitle, regexDescription]
     var altArr = [];
     function inputs() {
 
        
 
-        for (i = 0; i <= 10; i++) {
+        for (i = 0; i <input.length; i++) {
             if (input[i].value != "" && !regex[i].test(input[i].value)) {
                 console.log(input[i].value);
                 alert(alert1[i]);
@@ -83,7 +55,7 @@
             }
         }
         // alert(altArr);
-        document.getElementById("form").submit()
-        console.log(altArr);        
+        form.submit()
+               
     }
 </script>

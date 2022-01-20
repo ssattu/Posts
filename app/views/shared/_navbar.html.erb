@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+  <div class="container-fluid">
+        <%= link_to 'Posts', posts_path, class:"navbar-brand"%>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'Add Post', posts_new_path, class:"nav-link"%>
+        </li>
+        <div class="d-flex ">
+          <li class="nav-item">
+          <%= link_to 'Sign Out',destroy_user_session_path, class:"nav-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Edit Profile', edit_user_registration_path, class:"nav-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'My Profile', myprofile_users_path, class:"nav-link"%>
+        </li>
+        </div>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Sign In', new_user_session_path, class:"nav-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Sign Up', new_user_registration_path, class:"nav-link" %>
+        </li>
+      <% end %>
+      </ul>
+      
+      <div class="float-right">
+        <%= form_with url: root_path,  model: @post, method: :get do |form| %>
+        <%= form.text_field :title %>
+        <%= form.submit :search, class:"btn-secondary rounded" %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+
+
+
+    <!--   <form class="d-flex">
+        <input class="form-control me-2 search-input" type="search" placeholder="Search" aria-label="Search">
+        <button class="search-btn btn-outline-success" type="submit">Search</button>
+      </form> -->
+<!-- <script type="text/javascript">
+  
+  var searchInput = document.querySelector(".search-input")
+
+  var searchButton = document.querySelector(".search-btn")
+  searchButton.addEventListener("click", search);
+
+  function search(){
+    if (Post.find_by(title:'searchInput.value').present? ){
+      console.log("Search");
+    }
+    else {
+      console.log("");
+      event.preventDefault()
+      
+    }
+  }
+</script> -->

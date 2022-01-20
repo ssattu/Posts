@@ -61,6 +61,8 @@ group :development do
 
   gem "awesome_print"
 
+  gem 'devise'
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
@@ -77,3 +79,4 @@ end
 
 gem 'figaro'
 gem 'dotenv-rails'
+gem 'carrierwave', '~> 2.0'

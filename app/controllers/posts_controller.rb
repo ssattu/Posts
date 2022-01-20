@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only:[:edit, :new, :destroy]
   def index
-  	@posts = Post.all
+    if params[:title]
+  	@posts = Post.where("title ilike ?", "%#{params[:title]}%")
+    else
+    @posts = Post.all.order(:title)
+    end
   end
 
   def edit
@@ -26,12 +31,10 @@ class PostsController < ApplicationController
   end
 
   def create
-  	@post = Post.new(posts_params)
+  	@post = current_user.posts.new(posts_params)
   	if @post.save
   		PostMail.new(@post).send_mail 		
-  		redirect_to root_path, notice: "Post is Created Successfully"
-    else
-  
+  		redirect_to root_path, notice: "Post is Created Successfully"  
   	end
   end
 
@@ -44,12 +47,13 @@ class PostsController < ApplicationController
 		@post.destroy
 
 		redirect_to root_path, notice: "Post is Deleted Successfully"
-  
- 	end
+ 	  end
+
+
 
 	private 
 		def posts_params
-			params.require(:post).permit(:title, :description, :user_id)
+			params.require(:post).permit(:title, :description, :post)
 		end
 
 end
