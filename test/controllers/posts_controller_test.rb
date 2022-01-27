@@ -1,4 +1,5 @@
 require "test_helper"
+require 'humanize'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do

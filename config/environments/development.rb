@@ -2,6 +2,8 @@ require "active_support/core_ext/integer/time"
 require 'carrierwave/orm/activerecord'
 
 Rails.application.configure do
+
+  config.hosts << "230b-2405-201-400f-7866-5c36-3790-26a-902f.ngrok.io"
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time

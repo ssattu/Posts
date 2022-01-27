@@ -78,5 +78,27 @@ group :test do
 end
 
 gem 'figaro'
+
 gem 'dotenv-rails'
+
 gem 'carrierwave', '~> 2.0'
+
+gem 'bcrypt', '~> 3.1.7'
+
+gem 'city-state' 
+
+gem 'humanize'
+
+
+gem 'omniauth'
+
+gem 'omniauth-facebook'
+
+gem 'activerecord-session_store'
+
+gem 'omniauth-google'
+
+gem 'omniauth-amazon'
+
+gem 'omniauth-github'
+
