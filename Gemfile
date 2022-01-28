@@ -96,7 +96,7 @@ gem 'omniauth-facebook'
 
 gem 'activerecord-session_store'
 
-gem 'omniauth-google'
+gem 'omniauth-google-oauth2'
 
 gem 'omniauth-amazon'
 

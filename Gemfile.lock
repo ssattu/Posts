@@ -200,7 +200,6 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.1-x86_64-linux)
       racc (~> 1.4)
-    oauth (0.5.8)
     oauth2 (1.4.7)
       faraday (>= 0.8, < 2.0)
       jwt (>= 1.0, < 3.0)
@@ -218,13 +217,11 @@ GEM
     omniauth-github (1.4.0)
       omniauth (~> 1.5)
       omniauth-oauth2 (>= 1.4.0, < 2.0)
-    omniauth-google (1.0.2)
-      multi_json
-      omniauth (~> 1.0)
-      omniauth-oauth
-    omniauth-oauth (1.2.0)
-      oauth
-      omniauth (>= 1.0, < 3)
+    omniauth-google-oauth2 (0.8.2)
+      jwt (>= 2.0)
+      oauth2 (~> 1.1)
+      omniauth (~> 1.1)
+      omniauth-oauth2 (>= 1.6)
     omniauth-oauth2 (1.7.2)
       oauth2 (~> 1.4)
       omniauth (>= 1.9, < 3)
@@ -338,7 +335,7 @@ DEPENDENCIES
   omniauth-amazon
   omniauth-facebook
   omniauth-github
-  omniauth-google
+  omniauth-google-oauth2
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.1)
