@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   def create
   	@post = current_user.posts.new(posts_params)
   	if @post.save
-  		PostMail.new(@post).send_mail 		
+  		# PostMail.new(@post).send_mail 		
   		redirect_to root_path, notice: "Post is Created Successfully"  
   	end
   end
@@ -50,7 +50,13 @@ class PostsController < ApplicationController
  	  end
 
 
-
+    def draft
+      debugger
+      @post = current_user.posts.new(posts_params)
+      @post.save!
+      @post.update(draft: 'draft')
+      redirect_to root_path, notice: "Post is saved as draft Successfully"  
+    end
 	private 
 		def posts_params
 			params.require(:post).permit(:title, :description, :post)

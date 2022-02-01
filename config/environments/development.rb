@@ -62,20 +62,20 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
   
-  # config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.delivery_method = :smtp
-  host = 'localhost:3000'
-  config.action_mailer.default_url_options = {:host => 'localhost:3000'}
+  # config.action_mailer.delivery_method = :test
+  # host = 'localhost:3000'
+  # config.action_mailer.default_url_options = {:host => 'localhost:3000'}
 
-  config.action_mailer.smtp_settings = {
-    :address           => 'smtp.gmail.com',
-    :port              => 587,
-    :user_name         => ENV["SMTP_USER"],
-    :password          => ENV["SMTP_PASSWORD"],
-    :authentication    => "plain",
-    :enable_starttls_auto => true
-  }
+  # config.action_mailer.smtp_settings = {
+  #   :address           => 'smtp.gmail.com',
+  #   :port              => 587,
+  #   :user_name         => ENV["SMTP_USER"],
+  #   :password          => ENV["SMTP_PASSWORD"],
+  #   :authentication    => "plain",
+  #   :enable_starttls_auto => true
+  # }
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 

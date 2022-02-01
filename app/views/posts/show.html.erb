@@ -7,17 +7,19 @@
 		Description
 	</h3>
 </div>
-<div class="d-block m-auto d-flex justify-content-center">
+<div class="d-block m-5 d-flex justify-content-center">
  <%= @post.description %><br><br>
 </div>
 
 <div class="d-block m-auto d-flex justify-content-center">
   <p>
-    <label class="d-block m-auto d-flex justify-content-center">My Post</label><br>
+    <label class="d-block m-auto d-flex justify-content-center"></label><br>
     <%= image_tag(@post.post.url) if @post.post.url %>
   </p>
 </div>
+<%= link_to "Back", :back, class:" m-5 btn btn-secondary m-3" %>
 
+<% if @post.user.name == current_user.name %>
 <div class="d-block m-auto d-flex justify-content-center">
 <div class="m-2">	<%= button_to "Go to Home", posts_path , method: :get, class:"m-2 btn-secondary rounded-2" %>
 </div>
@@ -25,8 +27,8 @@
 </div>
 <div class="m-2">	<%= button_to 'Destroy',  post_path(@post), method: :delete, class:"m-2 btn-secondary rounded-2", id:'delete-btn' %>
 </div>
-
 </div>
+<% end %>
 <script>
   deleteButton = document.querySelector("#delete-btn");
   deleteButton.addEventListener("click", deleteConfirmation);

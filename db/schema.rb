@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_27_060817) do
+ActiveRecord::Schema.define(version: 2022_01_31_120143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2022_01_27_060817) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "post"
+    t.integer "draft"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -61,6 +62,10 @@ ActiveRecord::Schema.define(version: 2022_01_27_060817) do
     t.string "photos"
     t.string "provider", limit: 50, default: "", null: false
     t.string "uid", limit: 500, default: "", null: false
+    t.datetime "deleted_at", precision: 6
+    t.string "country"
+    t.string "state"
+    t.string "city"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
