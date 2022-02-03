@@ -10,6 +10,9 @@
         <li class="nav-item">
           <%= link_to 'Add Post', posts_new_path, class:"nav-link"%>
         </li>
+        <li class="nav-item">
+          <%= link_to 'Draft Post', draft_path, class:"nav-link"%>
+        </li>
         <div class="d-flex ">
           <li class="nav-item">
           <%= link_to 'Sign Out',destroy_user_session_path, class:"nav-link"%>
@@ -21,6 +24,13 @@
           <%= link_to 'My Profile', myprofile_users_path, class:"nav-link"%>
         </li>
         </div>
+
+          <% if user_signed_in? && current_user.is_admin %>
+            <li class="nav-item">
+              <%= link_to 'Users', users_path, class:"nav-link"%>
+            </li>
+          <% end %>
+
       <% else %>
         <li class="nav-item">
           <%= link_to 'Sign In', new_user_session_path, class:"nav-link"%>
@@ -33,7 +43,7 @@
       
       <div class="float-right">
         <%= form_with url: root_path,  model: @post, method: :get do |form| %>
-        <%= form.text_field :title %>
+        <%= form.text_field :title, id:"search-title" %>
         <%= form.submit :search, class:"btn-secondary rounded" %>
         <% end %>
       </div>
@@ -41,29 +51,3 @@
     </div>
   </div>
 </nav>
-
-
-
-
-    <!--   <form class="d-flex">
-        <input class="form-control me-2 search-input" type="search" placeholder="Search" aria-label="Search">
-        <button class="search-btn btn-outline-success" type="submit">Search</button>
-      </form> -->
-<!-- <script type="text/javascript">
-  
-  var searchInput = document.querySelector(".search-input")
-
-  var searchButton = document.querySelector(".search-btn")
-  searchButton.addEventListener("click", search);
-
-  function search(){
-    if (Post.find_by(title:'searchInput.value').present? ){
-      console.log("Search");
-    }
-    else {
-      console.log("");
-      event.preventDefault()
-      
-    }
-  }
-</script> -->

@@ -9,6 +9,8 @@ class User < ApplicationRecord
   
   has_many :posts, dependent: :destroy
 
+  enum status: {active:0, inactive:1}
+
   mount_uploader :photos, PhotosUploader
 
   def self.create_from_provider_data(provider_data)

@@ -11,7 +11,12 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     # debugger
-    super
+    if (User.find_by(email: "#{params[:user][:email]}").status == 'active')
+      super
+    else
+     redirect_to new_user_registration_path 
+    end
+
   end
 
   # DELETE /resource/sign_out

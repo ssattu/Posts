@@ -1,0 +1,29 @@
+<h1 class="d-flex justify-content-center align-content-center">Draft Posts</h1><br>
+<table class="d-flex justify-content-around border-1 m-5">
+		
+		<tr class="border-dark">
+				<th class="border-2 p-2 text-center"><b>Id</th>
+				<th class="border-2 p-2 text-center"><b>User</th>
+				<th class="border-2 p-2 text-center"><b>Title</th>
+				<th class="border-2 p-2 text-center"><b>Description</th>
+			
+					<th class="border-2 p-2 text-center" colspan="3">Operations</th>
+		</tr>		
+		
+			<% @post.each do |post|%>
+				<% if ((user_signed_in?) && (post.user.name == current_user.name)) %>
+					<tr>
+						<td class="border-1 p-2"><%= post.id %></td>
+						<td class="border-1 p-2"><%= post.user.name %></td>
+						<td class="border-1 p-2"><%= post.title %></td>
+						<td class="border-1 p-2"><%= post.description %></td>
+							<td class="border-1 p-2">
+=							<%= button_to 'Edit',  edit_post_path(post),class:"btn-secondary rounded", method: :get %>
+							<%= button_to 'Destroy',  post_path(post), method: :delete, class:'delete-btn btn-secondary rounded' %>
+							</td>
+					</tr>
+				<%end%>
+			<%end%>
+
+</table>
+

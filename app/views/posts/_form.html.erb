@@ -4,7 +4,7 @@
         
 
         <%= form.label :title, "Title :"%><br>
-        <%= form.text_field :title , class:'input form-control'%><br>
+        <%= form.text_field :title , class:'input form-control', id: "post_title"%><br>
         
         <%= form.label :description , "Description :"%><br>
         <%= form.text_area :description , size: 100*5, class:'input form-control' %><br>
@@ -21,5 +21,5 @@
 </section>
 <%end%>
 
-<%= javascript_include_tag 'post_submit' %>
 <%= javascript_include_tag 'post_draft' %>
+<%= javascript_include_tag 'post_submit' %>

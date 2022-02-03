@@ -1,0 +1,50 @@
+<h1 class="d-flex justify-content-center align-content-center">users</h1><br>
+<table class="d-flex justify-content-around border-1 m-5">
+		
+		<tr class="border-dark">
+				<th class="border-2 p-2 text-center"><b>Id</th>
+				<th class="border-2 p-2 text-center"><b>Name</th>
+				<th class="border-2 p-2 text-center"><b>Status</th>
+				<th class="border-2 p-2 text-center" colspan="3">Operations</th>
+		</tr>		
+		
+			<% @users.each do |user|%>
+					<tr>
+						<td class="border-1 p-2"><%= user.id %></td>
+						<td class="border-1 p-2"><%= user.name %></td>
+						<td class="border-1 p-2"><%= user.status %></td>
+						<td class="border-1 p-2">
+						
+						<%= button_to 'Activate',  activate_path(id: user.id),class:"btn-secondary rounded", method: :get %>
+						<%= button_to 'Deactivate',  user_path(user.id), method: :delete, class:'delete-btn btn-secondary rounded' %>
+						<%= button_to 'Show',  user_profile_path(user.id), method: :get, class:"btn-secondary rounded"%>
+
+						</td>
+					</tr>
+			<% end %>
+
+</table>
+
+<script>
+	// $(document).ready(() => {
+
+	// 	$('.delete-btn').click((e) => { deleteConfirmation(e) })
+	    
+	  var deleteButton = document.querySelectorAll(".delete-btn");
+	  for (var i = 0; i < deleteButton.length; i++){
+		  	deleteButton[i].addEventListener("click", deleteConfirmation);
+	  	}
+	  		function deleteConfirmation(e) {
+		    	console.log('FUNC');
+		    	if (confirm("Are you sure?")) {
+		    	console.log('Delete');
+		    	}
+		    	else {
+		    	console.log('DONT DELETE');
+		      event.preventDefault()
+		    	}
+		  
+		  	}
+	    
+	// })
+</script>

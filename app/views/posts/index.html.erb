@@ -15,6 +15,7 @@
 		
 			<% @posts.each do |post|%>
 					<tr>
+						<% if !(post.draft == 'draft') %>
 						<td class="border-1 p-2"><%= post.id %></td>
 						<td class="border-1 p-2"><%= post.user.name %></td>
 						<td class="border-1 p-2"><%= post.title %></td>
@@ -29,6 +30,7 @@
 							</td>
 							<% end %>
 					</tr>
+					<% end %>
 			<%end%>
 
 </table>

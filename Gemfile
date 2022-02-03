@@ -102,3 +102,4 @@ gem 'omniauth-amazon'
 
 gem 'omniauth-github'
 
+gem 'jquery-rails'

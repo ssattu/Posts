@@ -33,11 +33,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   respond_with_navigational(resource){ redirect_to after_sign_out_path_for(resource_name) }
   # end
 
-  def destroy
-    resource.soft_delete
-    set_flash_message :notice, :destroyed
-    sign_out_and_redirect(resource)
-  end
+  # def destroy
+  #   super
+  # end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
